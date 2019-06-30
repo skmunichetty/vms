@@ -1,0 +1,20 @@
+<h1>Mini Car Sales Application</h1>
+
+
+
+<select (change)="onSelect($event.target.value)">
+  <option [ngValue]="undefined" selected>Select a Vehicle Type</option>
+  <option *ngFor="let vt of vehicleTypes$" [ngValue]="vt">Create {{vt.name}}</option>
+</select>
+
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+    Select Vehicle Type
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">HTML</a></li>
+    <li><a href="#">CSS</a></li>
+    <li><a href="#">JavaScript</a></li>
+  </ul>
+</div>
