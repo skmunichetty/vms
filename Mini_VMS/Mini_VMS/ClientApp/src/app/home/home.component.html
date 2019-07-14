@@ -1,0 +1,14 @@
+<h1>Mini Vehicle Managment System</h1>
+
+<div class="btn-group" dropdown>
+  <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
+    {{selectedVehicleType}} <span class="caret"></span>
+  </button>
+  <ul *dropdownMenu class="dropdown-menu" role="menu">
+    <li role="menuitem"><a class="dropdown-item" *ngFor="let vt of vehicleTypes" [routerLink]='["/create-car"]' (click)="onSelectedOption(vt.text)">{{vt.name}}</a></li>
+  </ul>
+</div>
+
+<hr/>
+
+<!--<createcar [childMessage]="selectedVehicleType"></createcar>-->

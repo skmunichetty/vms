@@ -1,0 +1,64 @@
+ Say  {{childMessage}}
+
+<hr />
+<div>
+  <form>
+    <div class="form-group">
+      <label>Make:</label>
+      <input type="text" class="form-control" id="make" [(ngModel)]="carMake" (input)="carMake = $event.target.value">
+    </div>
+    <div class="form-group">
+      <label>Model:</label>
+      <input type="text" class="form-control" id="model" [(ngModel)]="carModel" (input)="carModel = $event.target.value">
+    </div>
+    <div class="form-group">
+      <label>Engine:</label>
+      <input type="text" class="form-control" id="engine" [(ngModel)]="carEngine" (input)="carEngine = $event.target.value">
+    </div>
+    <div class="form-group">
+      <label>Doors:</label>
+      <input type="number" class="form-control" id="doors" [(ngModel)]="carDoors" (input)="carDoors = $event.target.value">
+    </div>
+    <div class="form-group">
+      <label>Wheels:</label>
+      <input type="number" class="form-control" id="wheels" [(ngModel)]="carWheels" (input)="carWheels = $event.target.value">
+    </div>
+    <div class="form-group">
+      <label>Body Types:</label>
+
+      <select [(ngModel)]="bt" id="bodyType" class="form-control" (change)="onSelectedBodyType($event.target.value)">
+        <option value="" disabled selected>Select a Body Type</option>
+        <option *ngFor="let bt of bodyTypes" [value]="bt.id">{{bt.name}}</option>
+      </select>
+    </div>
+  </form>
+  <button type="submit" class="btn btn-default" (click)="addCar()">Create Car</button>
+
+</div>
+
+<hr />
+
+
+<div class="container">
+  <h2>All Cars</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Engine</th>
+        <th>Doors</th>
+        <th>Wheels</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let car of allCars">
+        <td>{{car.make}}</td>
+        <td>{{car.model}}</td>
+        <td>{{car.engine}}</td>
+        <td>{{car.doors}}</td>
+        <td>{{car.wheels}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
